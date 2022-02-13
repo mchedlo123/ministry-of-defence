@@ -129,37 +129,37 @@
 
         <div class="row">
           <div class="col-md-6">
-            <div class="input-box">
-              <label>COUNTRY</label>
-              <select class="form-control" name="country" id="country">
-                <option value="" disabled selected>Select Country</option>
-                <option *ngFor="let country of countries" [value]="country.name">{{country.name}}</option>
-              </select>
-            </div>
-            <form>
+            <form [formGroup]="loginForm" (ngSubmit)="completeUser()" id="form1" >
+              <div class="input-box">
+                <label>COUNTRY</label>
+                <select class="form-control" name="country" id="country" formControlName="country" >
+                  <option value="" disabled selected>Select Country</option>
+                  <option *ngFor="let country of countries" [value]="country.name">{{country.name}}</option>
+                </select>
+              </div>
               <div class="input">
                 <label>ADDRESS LINE 1</label>
-                <input class="input-padding" type="text" placeholder="e.g. 2707 Par Drive">
+                <input class="input-padding" type="text" placeholder="e.g. 2707 Par Drive" formControlName="address">
               </div>
               <div class="input">
                 <label>POSTCODE</label>
-                <input class="input-padding" type="number" placeholder="E.g. 0000">
+                <input class="input-padding" type="number" placeholder="E.g. 0000" formControlName="postcode">
               </div>
             </form>
           </div>
           <div class="col-md-6">
-            <form>
+            <form [formGroup]="loginForm" (ngSubmit)="completeUser()" id="form2">
               <div class="input">
                 <label>CITY</label>
-                <input class="input-padding" type="text" placeholder="e.g. New York">
+                <input class="input-padding" type="text" placeholder="e.g. New York" formControlName="city">
               </div>
               <div class="input">
                 <label>ADDRESS LINE 2</label>
-                <input class="input-padding" type="text" placeholder="e.g. Los Angeles, CA 90013">
+                <input class="input-padding" type="text" placeholder="e.g. Los Angeles, CA 90013" formControlName="address2">
               </div>
               <div class="input">
                 <label>PHONE NUMBER</label>
-                <input class="input-padding" type="number" placeholder="E.g. +995 557232323">
+                <input class="input-padding" type="number" placeholder="E.g. +995 557232323" formControlName="phoneNumber">
               </div>
             </form>
           </div>
@@ -170,10 +170,10 @@
                 Agree to terms and conditions
               </label>
             </div>
-            <button class="btn btn-primary" type="submit">COMPLETE</button>
+            <button class="btn btn-primary" type="submit" form="form2">COMPLETE</button>
           </div>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-  </div>
-</div>
+      </div>
+    </div>
