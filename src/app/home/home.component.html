@@ -129,37 +129,37 @@
 
         <div class="row">
           <div class="col-md-6">
-            <div class="input-box">
-              <label>COUNTRY</label>
-              <select class="form-control" name="country" id="country">
-                <option value="" disabled selected>Select Country</option>
-                <option *ngFor="let country of countries" [value]="country.name">{{country.name}}</option>
-              </select>
-            </div>
-            <form>
+            <form [formGroup]="loginForm" (ngSubmit)="completeUser()" id="form1">
+              <div class="input-box">
+                <label>COUNTRY</label>
+                <select class="form-control" name="country" id="country" formControlName="country">
+                  <option value="" disabled selected>Select Country</option>
+                  <option *ngFor="let country of countries" [value]="country.name">{{country.name}}</option>
+                </select>
+              </div>
               <div class="input">
                 <label>ADDRESS LINE 1</label>
-                <input class="input-padding" type="text" placeholder="e.g. 2707 Par Drive">
+                <input class="input-padding" type="text" placeholder="e.g. 2707 Par Drive" formControlName="address">
               </div>
               <div class="input">
                 <label>POSTCODE</label>
-                <input class="input-padding" type="number" placeholder="E.g. 0000">
+                <input class="input-padding" type="number" placeholder="E.g. 0000" formControlName="postcode">
               </div>
             </form>
           </div>
           <div class="col-md-6">
-            <form>
+            <form [formGroup]="loginForm" (ngSubmit)="completeUser()">
               <div class="input">
                 <label>CITY</label>
-                <input class="input-padding" type="text" placeholder="e.g. New York">
+                <input class="input-padding" type="text" placeholder="e.g. New York" formControlName="city">
               </div>
               <div class="input">
                 <label>ADDRESS LINE 2</label>
-                <input class="input-padding" type="text" placeholder="e.g. Los Angeles, CA 90013">
+                <input class="input-padding" type="text" placeholder="e.g. Los Angeles, CA 90013" formControlName="address2">
               </div>
               <div class="input">
                 <label>PHONE NUMBER</label>
-                <input class="input-padding" type="number" placeholder="E.g. +995 557232323">
+                <input class="input-padding" type="number" placeholder="E.g. +995 557232323" formControlName="phoneNumber">
               </div>
             </form>
           </div>
@@ -170,93 +170,10 @@
                 Agree to terms and conditions
               </label>
             </div>
-            <button class="btn btn-primary" type="submit">COMPLETE</button>
+            <button class="btn btn-primary" type="submit" form="form1">COMPLETE</button>
           </div>
     </div>
   </div>
 </div>
   </div>
-<<<<<<<<< Temporary merge branch 1
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--<div class="wrapper" >-->
-<!--  <div class="row">-->
-<!--    <div class="col-md-5">-->
-
-<!--      <div class="steps">-->
-<!--        <div class="icon">-->
-<!--          <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16">-->
-<!--            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>-->
-<!--          </svg>-->
-<!--        </div>-->
-<!--        <div class="details">-->
-<!--          <span>EMAIL VERIFICATION</span>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--      <div class="steps">-->
-<!--        <div class="icon">-->
-<!--          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16">-->
-<!--            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>-->
-<!--          </svg>-->
-<!--        </div>-->
-<!--        <div class="details">-->
-<!--          <span>CATEGORY</span>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--      <div class="steps">-->
-<!--        <div class="icon">-->
-<!--          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16">-->
-<!--            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>-->
-<!--          </svg>-->
-<!--        </div>-->
-<!--        <div class="details">-->
-<!--          <span>ACCOUNT DETAILS</span>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--      <div class="steps">-->
-<!--        <div class="icon">-->
-<!--          <svg xmlns="http://www.w3.org/2000/svg"  fill="#8FAFE4" class="bi bi-cart4" viewBox="0 0 16 16">-->
-<!--            <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l.5 2H5V5H3.14zM6 5v2h2V5H6zm3 0v2h2V5H9zm3 0v2h1.36l.5-2H12zm1.11 3H12v2h.61l.5-2zM11 8H9v2h2V8zM8 8H6v2h2V8zM5 8H3.89l.5 2H5V8zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/>-->
-<!--          </svg>-->
-<!--        </div>-->
-<!--        <div class="details">-->
-<!--          <span class="billing-text">BILLING DETAILS</span>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--    <div class="col-md-7">-->
-<!--      <p>EMAIL</p>-->
-<!--    </div>-->
-<!--  </div>-->
-
-<!--</div>-->
-
-=========
->>>>>>>>> Temporary merge branch 2
 </div>

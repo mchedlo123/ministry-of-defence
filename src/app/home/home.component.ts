@@ -9,7 +9,6 @@ import { FormGroup, FormControl, FormControlName } from "@angular/forms";
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
   loginForm = new FormGroup({
     country: new FormControl(''),
     address: new FormControl(''),
